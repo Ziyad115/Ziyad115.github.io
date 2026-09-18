@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ziyad Alrefaei — Finance</title>
+<meta name="description" content="Ziyad Alrefaei — finance undergraduate focused on valuation, financial modeling, and quantitative market analysis. Selected projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F3F0;
+    --ink:#15221E;
+    --muted:#5C665F;
+    --faint:#8A938C;
+    --line:#D6DBD3;
+    --line-strong:#B9C0B6;
+    --accent:#0F7A4E;
+    --accent-deep:#0B5C3B;
+    --down:#B23A2E;
+    --maxw:1000px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+  a{color:var(--accent-deep);text-decoration:none;border-bottom:1px solid var(--line-strong);transition:border-color .15s ease,color .15s ease;}
+  a:hover{color:var(--accent);border-color:var(--accent);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* Header */
+  header.top{
+    position:sticky;top:0;z-index:10;
+    background:color-mix(in srgb,var(--paper) 88%, transparent);
+    backdrop-filter:saturate(120%) blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .top .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:16px;padding-bottom:16px;gap:20px;}
+  .wordmark{font-weight:700;letter-spacing:-.01em;font-size:1rem;border:none;color:var(--ink);}
+  .wordmark .dot{color:var(--accent);}
+  nav.top-nav a{border:none;color:var(--muted);font-size:.92rem;margin-left:22px;}
+  nav.top-nav a:hover{color:var(--accent);}
+  @media(max-width:560px){nav.top-nav a{margin-left:16px;font-size:.85rem;}}
+
+  /* Hero */
+  .hero{padding:88px 0 56px;}
+  .hero .role{
+    font-family:"IBM Plex Mono",monospace;font-size:.82rem;letter-spacing:.02em;
+    color:var(--accent-deep);margin:0 0 22px;
+  }
+  .hero h1{
+    font-weight:700;letter-spacing:-.03em;line-height:1.02;margin:0;
+    font-size:clamp(2.7rem,8vw,5.4rem);
+  }
+  .hero .lede{
+    max-width:60ch;margin:26px 0 0;font-size:clamp(1.05rem,2.3vw,1.35rem);
+    color:var(--ink);line-height:1.5;
+  }
+  .contacts{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.95rem;}
+  .contacts a{color:var(--muted);border-color:var(--line);}
+  .contacts a:hover{color:var(--accent);border-color:var(--accent);}
+
+  /* Section scaffolding */
+  section{padding:56px 0;border-top:1px solid var(--line);}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:38px;}
+  .sec-head h2{font-size:1.05rem;font-weight:600;letter-spacing:.01em;margin:0;}
+  .sec-head .count{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--faint);}
+  .sec-head .rule{flex:1;height:1px;background:var(--line);align-self:center;}
+
+  /* Projects — tearsheet rows */
+  .project{
+    display:grid;
+    grid-template-columns:120px 1fr 190px;
+    gap:28px;
+    padding:30px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .project:first-of-type{border-top:1px solid var(--line-strong);}
+  .p-tag{
+    font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--accent-deep);
+    padding-top:5px;
+  }
+  .p-tag .ticker{display:block;color:var(--faint);margin-top:6px;}
+  .p-main h3{margin:0;font-size:1.3rem;font-weight:600;letter-spacing:-.01em;}
+  .p-stack{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--muted);margin:7px 0 12px;}
+  .p-desc{margin:0;color:var(--ink);max-width:56ch;}
+  .p-links{margin-top:14px;display:flex;gap:20px;font-size:.9rem;}
+  .p-stats{display:flex;flex-direction:column;gap:14px;padding-top:4px;}
+  .stat{border-left:2px solid var(--accent);padding-left:12px;}
+  .stat .v{font-family:"IBM Plex Mono",monospace;font-size:1.15rem;font-weight:500;line-height:1.1;}
+  .stat .k{font-size:.74rem;color:var(--faint);letter-spacing:.02em;margin-top:3px;}
+  @media(max-width:760px){
+    .project{grid-template-columns:1fr;gap:14px;padding:26px 0;}
+    .p-stats{flex-direction:row;flex-wrap:wrap;gap:20px 28px;}
+  }
+
+  /* Definition-style blocks (education, skills, experience) */
+  .rows{display:grid;grid-template-columns:170px 1fr;gap:10px 32px;}
+  .rows dt{color:var(--faint);font-size:.85rem;font-family:"IBM Plex Mono",monospace;padding-top:3px;}
+  .rows dd{margin:0;}
+  .rows dd + dt{border-top:1px solid var(--line);padding-top:16px;margin-top:6px;}
+  .rows dt.brk{border-top:1px solid var(--line);padding-top:16px;margin-top:6px;}
+  .rows dd.brk{border-top:1px solid var(--line);padding-top:16px;margin-top:6px;}
+  .rows strong{font-weight:600;}
+  .rows .meta{color:var(--muted);font-size:.95rem;}
+  @media(max-width:620px){.rows{grid-template-columns:1fr;gap:6px;}.rows dd.brk,.rows dt.brk{border-top:none;padding-top:0;margin-top:0;}.rows dd{margin-bottom:14px;}}
+
+  .skillline{margin:0 0 4px;}
+  .skillline .items{color:var(--ink);}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line-strong);padding:48px 0 70px;}
+  footer h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin:0 0 20px;}
+  footer .contacts{margin-top:8px;}
+  .colophon{margin-top:40px;font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--faint);}
+
+  /* One deliberate page-load reveal */
+  @media(prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(10px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;}
+    .reveal.d1{animation-delay:.06s;} .reveal.d2{animation-delay:.14s;} .reveal.d3{animation-delay:.22s;}
+    @keyframes rise{to{opacity:1;transform:none;}}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#top" class="wordmark">Ziyad Alrefaei<span class="dot">.</span></a>
+    <nav class="top-nav">
+      <a href="#work">Work</a>
+      <a href="#profile">Profile</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <section class="hero" style="border-top:none;">
+      <p class="role reveal">Finance undergraduate · Jeddah, Saudi Arabia</p>
+      <h1 class="reveal d1">Valuation, modeling &amp; market analysis.</h1>
+      <p class="lede reveal d2">I build financial models and quantitative tools for the Saudi market — from three-statement DCF valuations to Python-based market monitoring. Below is a selection of my work.</p>
+      <div class="contacts reveal d3">
+        <a href="https://www.linkedin.com/in/ziyad-alrefaei-849bb6348">LinkedIn</a>
+        <a href="https://github.com/Ziyad115">GitHub</a>
+        <a href="mailto:ziyadalrefaie@gmail.com">Email</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section id="work">
+      <div class="sec-head">
+        <h2>Selected work</h2>
+        <span class="count">04</span>
+        <span class="rule"></span>
+      </div>
+
+      <!-- Project 1 -->
+      <article class="project">
+        <div class="p-tag">Valuation<span class="ticker">2280.SR</span></div>
+        <div class="p-main">
+          <h3>Integrated Financial Model — Almarai</h3>
+          <p class="p-stack">Excel · Three-statement + DCF</p>
+          <p class="p-desc">A fully integrated three-statement model and discounted cash flow valuation built on four years of historicals (2022–2025) using Wall Street Prep methodology. Growth and margin assumptions sourced from equity research, then cross-validated against reported financials to test model integrity and sensitivity.</p>
+          <div class="p-links">
+            <a href="files/Almarai_3-Statement-DCF-Linked_.htm">View the model</a>
+          </div>
+        </div>
+        <div class="p-stats">
+          <!-- Replace with your result, e.g. <div class="v">SAR 52.40</div><div class="k">implied share price</div> -->
+          <div class="stat"><div class="v">DCF</div><div class="k">valuation method</div></div>
+          <div class="stat"><div class="v">2022–25</div><div class="k">historicals modeled</div></div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project">
+        <div class="p-tag">Portfolio<span class="ticker">TASI</span></div>
+        <div class="p-main">
+          <h3>Portfolio Management &amp; Equity Analysis</h3>
+          <p class="p-stack">Excel · Risk &amp; performance attribution</p>
+          <p class="p-desc">A ~SAR 100K four-stock portfolio of eXtra, Maaden, Almarai, and Bahri, spanning Saudi retail, mining, consumer staples, and logistics, held from March to May 2026. Includes cross-company ratio analysis, beta regressions against the TASI, a return correlation matrix, 50- and 200-day moving-average timing analysis, and performance attribution by holding. Team of four, FIN-424 at King Abdulaziz University.</p>
+          <div class="p-links">
+            <a href="files/tasi-portfolio-project.pdf">View project slides (PDF)</a>
+          </div>
+        </div>
+        <div class="p-stats">
+          <div class="stat"><div class="v">β 0.88</div><div class="k">portfolio beta</div></div>
+          <div class="stat"><div class="v">+2.63%</div><div class="k">holding-period return</div></div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project">
+        <div class="p-tag">Quant<span class="ticker">PY</span></div>
+        <div class="p-main">
+          <h3>Market Anomaly &amp; Crisis Detection Tool</h3>
+          <p class="p-stack">Python · Pandas · NumPy · Statistical analysis</p>
+          <p class="p-desc">A quantitative tool that flags market stress by measuring how far returns deviate from their rolling mean and standard deviation across major asset classes. Thresholds separate statistically significant dislocations from normal volatility. Backtested against the 2008 financial crisis, the COVID-19 crash, and the 2023 SVB collapse, with a Saudi mode that tracks TASI alongside oil and gold.</p>
+          <div class="p-links">
+            <a href="https://github.com/Ziyad115">View on GitHub</a>
+          </div>
+        </div>
+        <div class="p-stats">
+          <div class="stat"><div class="v">z-score</div><div class="k">detection logic</div></div>
+          <div class="stat"><div class="v">3 crises</div><div class="k">backtested</div></div>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project">
+        <div class="p-tag">Application<span class="ticker">API</span></div>
+        <div class="p-main">
+          <h3>Morning Brief — Market Intelligence Dashboard</h3>
+          <p class="p-stack">Python · FastAPI · yfinance · Render</p>
+          <p class="p-desc">A daily pre-market snapshot that brings overnight index and equity moves, the earnings calendar, and key economic events into one view, built around what moved, who's reporting, and what's scheduled. Deployed on Render as an always-on service that refreshes automatically each day.</p>
+          <div class="p-links">
+            <!-- Paste your Render URL here, or delete this line if the app isn't public -->
+            <a href="#" data-replace="live-url">Live demo</a>
+            <a href="https://github.com/Ziyad115">View on GitHub</a>
+          </div>
+        </div>
+        <div class="p-stats">
+          <div class="stat"><div class="v">Live</div><div class="k">deployed on Render</div></div>
+          <div class="stat"><div class="v">FastAPI</div><div class="k">full-stack</div></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="profile">
+      <div class="sec-head">
+        <h2>Profile</h2>
+        <span class="rule"></span>
+      </div>
+      <dl class="rows">
+        <dt>Education</dt>
+        <dd>
+          <strong>King Abdulaziz University</strong> — BSc Finance, expected 2027<br>
+          <span class="meta">GPA 4.58 / 5.00 · Certificate of Excellence · Jeddah, Saudi Arabia</span>
+        </dd>
+
+        <dt class="brk">Certification</dt>
+        <dd class="brk"><strong>Wall Street Prep</strong> — Financial &amp; Valuation Modeling<br>
+          <span class="meta">Three-statement modeling, DCF, trading and transaction comps, and LBO modeling (Excel)</span></dd>
+
+        <dt class="brk">Leadership</dt>
+        <dd class="brk">
+          <strong>Saudi Aramco Consulting Case Competition</strong> — Team Leader<br>
+          <span class="meta">In progress. Leading a student team through research, financial analysis, and final recommendations under competitive deadlines.</span>
+          <br><br>
+          <strong>Finance Team, King Abdulaziz University</strong> — Member, Planning Department (Apr 2026 – present)<br>
+          <span class="meta">Delivered Excel Week workshop sessions teaching Excel fundamentals to about 50 students. Took part in department-hosted industry sessions with professionals from PwC and the Public Investment Fund (PIF).</span>
+        </dd>
+
+        <dt class="brk">Skills</dt>
+        <dd class="brk">
+          <p class="skillline"><span class="meta">Financial —</span> <span class="items">Financial modeling, DCF &amp; comparable valuation, three-statement modeling, LBO modeling, financial statement analysis, portfolio and risk analysis</span></p>
+          <p class="skillline"><span class="meta">Technical —</span> <span class="items">Excel (advanced), Python (Pandas, NumPy), FastAPI, Git/GitHub, VS Code</span></p>
+          <p class="skillline"><span class="meta">Languages —</span> <span class="items">Arabic (native), English (fluent)</span></p>
+        </dd>
+      </dl>
+    </section>
+  </div>
+
+  <footer id="contact">
+    <div class="wrap">
+      <h2>Let's talk.</h2>
+      <p class="meta" style="max-width:48ch;color:var(--muted);">Open to finance co-op and internship opportunities in Jeddah, starting January 2027.</p>
+      <div class="contacts">
+        <a href="mailto:ziyadalrefaie@gmail.com">ziyadalrefaie@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ziyad-alrefaei-849bb6348">LinkedIn</a>
+        <a href="https://github.com/Ziyad115">GitHub</a>
+      </div>
+      <p class="colophon">Ziyad Alrefaei — Jeddah, KSA — 2026</p>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>
